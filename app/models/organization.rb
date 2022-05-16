@@ -4,7 +4,7 @@ class Organization < ApplicationRecord
   belongs_to :team
   # 🚅 add belongs_to associations above.
 
-  has_many :municipalities, dependent: :destroy, enable_updates: true
+  has_many :municipalities, dependent: :destroy, enable_updates: true, inverse_of: :organization
   # 🚅 add has_many associations above.
 
   # 🚅 add has_one associations above.

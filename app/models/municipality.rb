@@ -1,7 +1,7 @@
 class Municipality < ApplicationRecord
   # 🚅 add concerns above.
 
-  belongs_to :organization
+  belongs_to :organization, inverse_of: :municipalities
   # 🚅 add belongs_to associations above.
 
   # 🚅 add has_many associations above.
