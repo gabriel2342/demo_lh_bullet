@@ -1,17 +1,19 @@
-class Municipality < ApplicationRecord
+class ServiceProvider < ApplicationRecord
   # 🚅 add concerns above.
 
-  belongs_to :organization, inverse_of: :municipalities
+  # 🚅 add attribute accessors above.
+
+  belongs_to :municipality
   # 🚅 add belongs_to associations above.
 
-  has_many :service_providers, dependent: :destroy
   # 🚅 add has_many associations above.
 
-  has_one :team, through: :organization
+  has_one :team, through: :municipality
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.
 
+  before_validation :reject_blank_services
   validates :name, presence: true
   # 🚅 add validations above.
 
@@ -20,4 +22,8 @@ class Municipality < ApplicationRecord
   # 🚅 add delegations above.
 
   # 🚅 add methods above.
+  private 
+  def reject_blank_services
+    self.services = self.services.reject(&:blank?)
+  end
 end

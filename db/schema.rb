@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_06_003507) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_21_122922) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_06_003507) do
     t.string "name", null: false
     t.text "body"
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
+    t.integer "record_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
@@ -56,7 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_06_003507) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -102,8 +102,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_06_003507) do
   end
 
   create_table "memberships_reassignments_assignments", force: :cascade do |t|
-    t.bigint "membership_id", null: false
-    t.bigint "scaffolding_completely_concrete_tangible_things_reassignments_i"
+    t.integer "membership_id", null: false
+    t.integer "scaffolding_completely_concrete_tangible_things_reassignments_i"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["membership_id"], name: "index_memberships_reassignments_assignments_on_membership_id"
@@ -111,7 +111,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_06_003507) do
   end
 
   create_table "memberships_reassignments_scaffolding_completely_concrete_tangi", force: :cascade do |t|
-    t.bigint "membership_id", null: false
+    t.integer "membership_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["membership_id"], name: "index_tangible_things_reassignments_on_membership_id"
@@ -189,7 +189,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_06_003507) do
   end
 
   create_table "scaffolding_absolutely_abstract_creative_concepts", force: :cascade do |t|
-    t.bigint "team_id", null: false
+    t.integer "team_id", null: false
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
@@ -208,7 +208,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_06_003507) do
   end
 
   create_table "scaffolding_completely_concrete_tangible_things", force: :cascade do |t|
-    t.bigint "absolutely_abstract_creative_concept_id", null: false
+    t.integer "absolutely_abstract_creative_concept_id", null: false
     t.string "text_field_value"
     t.string "button_value"
     t.string "cloudinary_image_value"
@@ -238,6 +238,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_06_003507) do
     t.datetime "updated_at", precision: nil, null: false
     t.index ["membership_id"], name: "index_tangible_things_assignments_on_membership_id"
     t.index ["tangible_thing_id"], name: "index_tangible_things_assignments_on_tangible_thing_id"
+  end
+
+  create_table "service_providers", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "about"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "contact_person"
+    t.string "phone", null: false
+    t.string "email"
+    t.string "url"
+    t.string "services", array: true
+    t.bigint "municipality_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["municipality_id"], name: "index_service_providers_on_municipality_id"
   end
 
   create_table "teams", id: :serial, force: :cascade do |t|
@@ -371,6 +389,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_06_003507) do
   add_foreign_key "scaffolding_completely_concrete_tangible_things", "scaffolding_absolutely_abstract_creative_concepts", column: "absolutely_abstract_creative_concept_id"
   add_foreign_key "scaffolding_completely_concrete_tangible_things_assignments", "memberships"
   add_foreign_key "scaffolding_completely_concrete_tangible_things_assignments", "scaffolding_completely_concrete_tangible_things", column: "tangible_thing_id"
+  add_foreign_key "service_providers", "municipalities"
   add_foreign_key "users", "oauth_applications", column: "platform_agent_of_id"
   add_foreign_key "webhooks_outgoing_endpoints", "teams"
   add_foreign_key "webhooks_outgoing_events", "teams"
