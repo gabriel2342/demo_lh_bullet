@@ -74,6 +74,9 @@ class Account::ServiceProvidersController < Account::ApplicationController
       :phone,
       :email,
       :url,
+      :logo,
+      :logo_removal,
+      search: [],
       services: [],
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.

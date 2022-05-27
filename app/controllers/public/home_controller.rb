@@ -10,9 +10,9 @@ class Public::HomeController < Public::ApplicationController
   include DocumentationSupport
 
   def index
-    @municipalities = Municipality.all 
-    @service_providers = ServiceProvider.all
+    #@service_providers = ServiceProvider.all
+    @service_providers = ServiceProvider.search(params[:search])
   end
-
   
 end
+ 

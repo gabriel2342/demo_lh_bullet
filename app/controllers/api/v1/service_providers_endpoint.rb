@@ -20,6 +20,7 @@ class Api::V1::ServiceProvidersEndpoint < Api::V1::Root
       optional :email, type: String, desc: Api.heading(:email)
       optional :url, type: String, desc: Api.heading(:url)
       optional :services, type: String, desc: Api.heading(:services)
+      optional :logo, type: File, desc: Api.heading(:logo)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 

@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card=body">
+    <h5 class="card_title"><%= service_provider.name%></h5>
+    <p class="card-text"><%= service_provider.about%>
+    <%= service_provider.street%><br>
+    <%= service_provider.city%> , <%= service_provider.state%>  <%= service_provider.zip%></p>
+    <p class="card-text"> <strong>Contact:</strong> <%= service_provider.contact_person%> <strong>  Phone: </strong><%= service_provider.phone%><strong>  Email: </strong><%= service_provider.email%></p>
+
+    <strong> Services Provided: </strong><%= service_provider.services.to_sentence%></p>
+  </div>
+</div>

@@ -68,17 +68,24 @@ en:
         label: *services
         heading: *services
         options:
-          long_term_housing: Long Term Housing
-          immediate_housing: Immediate Housing
-          finding_food: Finding Food
-          family_services: Family Services
-          mental_health: Mental Health Services
-          substance_use: Substance Use
-          immigration: Immigration
-          prisoner_reentry: Prisoner Re-entry
-          domestic_violence: Domestic Violence
-          military: Former or Current U.S. military?
+          Long Term Housing: Long Term Housing
+          Shelter: Shelter
+          Emergency Financial Assistance: Emergency Financial Assistance
+          Finding Food: Finding Food
+          Transportation: Transportation
+          Legal Services: Legal Services
+          Family and Youth Services: Family and Youth Services
+          Mental Health Services: Mental Health Services
+          Substance Use: Substance Use
+          Immigration: Immigration or Refugee Support
+          Prisoner Re-entry: Prisoner Re-entry
+          Domestic Violence: Domestic Violence
+          Former or Current U.S. military?: Former or Current U.S. military?
 
+      logo:
+        _: &logo Logo
+        label: *logo
+        heading: *logo
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -146,6 +153,7 @@ en:
         email: *email
         url: *url
         services: *services
+        logo: *logo
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

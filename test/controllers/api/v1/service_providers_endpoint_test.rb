@@ -31,6 +31,7 @@ class Api::V1::ServiceProvidersEndpointTest < Api::Test
       assert_equal service_provider_data['email'], service_provider.email
       assert_equal service_provider_data['url'], service_provider.url
       assert_equal service_provider_data['services'], service_provider.services
+      assert_equal service_provider_data['logo'], service_provider.logo
       # 🚅 super scaffolding will insert new fields above this line.
 
       assert_equal service_provider_data["municipality_id"], service_provider.municipality_id

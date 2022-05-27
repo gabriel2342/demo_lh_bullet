@@ -14,6 +14,7 @@ class Api::V1::ServiceProviderSerializer < Api::V1::ApplicationSerializer
     :email,
     :url,
     :services,
+    :logo,
     # 🚅 super scaffolding will insert new fields above this line.
     :created_at,
     :updated_at
